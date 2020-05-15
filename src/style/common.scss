@@ -1,0 +1,115 @@
+.padding-left-10{
+    padding-left: 10px;
+}
+
+.padding-left-20{
+    padding-left: 20px;
+}
+
+.padding-020{
+    padding: 0 20px;
+}
+
+.margin-left-25{
+    margin-left: 25px;
+}
+
+.margin-top-10{
+    margin-top: 10px;
+}
+.margin-bottom-10{
+    margin-bottom: 10px;
+}
+
+.textnowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bindform{
+    .ivu-form-item:last-child{
+        margin-bottom: 0;
+    }
+}
+.clearform{
+    .ivu-form-item{
+        margin-bottom: 0;
+    }
+}
+
+.uploadcarousel{
+    width: 80px;
+}
+
+.ivu-input-wrapper{
+    textarea{
+        min-width: 100%;
+    }
+}
+
+.content-box{
+    @include displayFlex;
+    @include perfix(flex, 1);
+    @include perfix(flex-direction, column);
+    position: relative;
+    margin: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 20px 0px rgba(28, 36, 56, 0.2);
+    border-radius: 4px;
+    min-width: 1000px;
+    @extend .bg-color-FFFFFF;
+}
+
+
+.uploadbox{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: $text-color-1C2438;
+    border: 1px dashed #e9eaec;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    &:hover .iconbox{
+        display:block;
+    }
+    .ivu-upload{
+        width: 80px;
+    }
+    .iconbox{
+        display: none;
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+    i{
+        position: absolute;
+        top:25px;
+        left:28px;
+        z-index: 10;
+        color: #fff;
+    }
+    .image{
+        position: absolute;
+        top: 0;
+        left:0;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+    transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active for below version 2.1.8 */ {
+    opacity: 0;
+}

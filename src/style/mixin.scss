@@ -1,0 +1,122 @@
+/*
+ * @Author: mikey.zhaopeng 
+ * @Date: 2017-12-13 14:42:30 
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-12-13 16:38:48
+ */
+
+ @mixin displayFlex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin perfix($property, $value) {
+    -webkit-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+ // 弹性竖直居中
+ @mixin flexContent {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+// 弹性上下排版
+@mixin flexDirectionColumn {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+// 弹性横向排版
+@mixin flexDirectionRow {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+// 边框边距
+@mixin padding0815 {
+    padding: 0 8px 15px;
+}
+
+@mixin borclass($value) {
+    @if $value == after {
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            // height: 200%;
+            border-bottom: 1px solid $border-color-e9eaec;
+            @include perfix(transform-origin, 0 0);
+            // @include perfix(transform, scale(0.5, 0.5));
+            @include perfix(box-sizing, border-box);
+        }
+    } @else if $value == before {
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            // height: 200%;
+            border-bottom: 1px solid $border-color-e9eaec;
+            @include perfix(transform-origin, 0 0);
+            // @include perfix(transform, scale(0.5, 0.5));
+            @include perfix(box-sizing, border-box);
+        }
+    } @else if $value == border {
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            // height: 200%;
+            border-bottom: 1px solid $border-color-e9eaec;
+            @include perfix(transform-origin, 0 0);
+            // @include perfix(transform, scale(0.5, 0.5));
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            // height: 200%;
+            border-bottom: 1px solid $border-color-e9eaec;
+            @include perfix(transform-origin, 0 0);
+            // @include perfix(transform, scale(0.5, 0.5));
+            @include perfix(box-sizing, border-box);
+        }
+    }
+}
+
+@mixin custombor($value, $top, $bottom, $left, $height, $wire, $color, $radius) {
+    @if $value == Rborder {
+        &::before{
+            content: '';
+            position: absolute;
+            top: $top;
+            bottom: $bottom;
+            left: $left;
+            height: $height;
+            border: $wire solid $color;
+            border-radius: $radius;
+            @include perfix(transform-origin, 0 0);
+            // @include perfix(transform, scale(0.5, 0.5));
+            @include perfix(box-sizing, border-box);
+        }
+    }
+}
